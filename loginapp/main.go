@@ -29,23 +29,23 @@ func main() {
             return
         }
 
-        // ✅ Check 1: Username must be all uppercase
+        // Check 1: Username must be all uppercase
         if login.Username != strings.ToUpper(login.Username) {
             c.JSON(http.StatusBadRequest, gin.H{"message": "Username must be in CAPITAL letters"})
             return
         }
 
-        // ✅ Check 2: Password must be an integer (numeric only)
+        // Check 2: Password must be an integer (numeric only)
         if _, err := strconv.Atoi(login.Password); err != nil {
             c.JSON(http.StatusBadRequest, gin.H{"message": "Password must be an integer"})
             return
         }
 
-        // ✅ Login validation (example)
+        // Login validation (example)
         if login.Username == "ADMIN" && login.Password == "1234" {
-            c.JSON(http.StatusOK, gin.H{"message": "✅ Login successful!"})
+            c.JSON(http.StatusOK, gin.H{"message": " Login successful!"})
         } else {
-            c.JSON(http.StatusUnauthorized, gin.H{"message": "❌ Invalid credentials"})
+            c.JSON(http.StatusUnauthorized, gin.H{"message": " Invalid credentials"})
         }
     })
 
